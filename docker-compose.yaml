@@ -23,7 +23,15 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
+      - USERID=1000
+      - GROUPID=1000
       - TZ=America/Mexico_City
+    command: >
+            -w "WORKGROUP"
+            -u "alex;password;1000;1000;1000"
+            -s "downloads;/downloads;yes;no;yes;all;none;alex;comment1"
+            -s "media;/media;yes;no;yes;all;none;alex;comment2"
+            -p
     volumes:
       - ${DONWLOADS}:/downloads
       - ${MEDIA}:/media
